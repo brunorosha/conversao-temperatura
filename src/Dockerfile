@@ -1,11 +1,4 @@
-FROM ubuntu
-ARG NODE_MAJOR=22
-RUN apt-get update && \
-    apt-get install -y curl && \
-    curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh && \
-    bash nodesource_setup.sh && \
-    apt-get update && \
-    apt-get install -y nodejs
+FROM node:23.6.1-alpine3.20
 WORKDIR /app
 COPY . .
 RUN npm install
